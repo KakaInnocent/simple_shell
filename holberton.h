@@ -1,45 +1,45 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef _MAIN_
+#define _MAIN_
 
-#include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <signal.h>
 #include <limits.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <sys/wait.h>
-#include <unistd.h>
-#include <errno.h>
 
 #define BUFSIZE 1024
-#define TOK_DELIM " \t\r\n\a"
 #define TOK_BUFSIZE 128
+#define TOK_DELIM " \t\r\n\a"
 
-/*Pointer to set of strings called abode*/
-extern char **abode;
+/* Points to an array of pointers to strings called the "environment" */
+extern char **environ;
+
 
 /**
- * struct dat - struct containing all relevant data on runtime
- *@av: argument vector
- *@input: command line eritten by user
- *@args: tokens of the command line
- *@status: last status of the shell
- @counter: lines counter
- @_abode: environment variable
- *@pid: process ID of the shell
+ * struct data - struct that contains all relevant data on runtime
+ * @av: argument vector
+ * @input: command line written by the user
+ * @args: tokens of the command line
+ * @status: last status of the shell
+ * @counter: lines counter
+ * @_environ: environment variable
+ * @pid: process ID of the shell
  */
-typedef struct dat
+typedef struct data
 {
 	char **av;
 	char *input;
 	char **args;
 	int status;
 	int counter;
-	char **_abode;
+	char **_environ;
 	char *pid;
 } data_shell;
-
 
 /**
  * struct sep_list_s - single linked list
@@ -59,7 +59,6 @@ typedef struct sep_list_s
  * @next: next node
  * Description: single linked list to store command lines
  */
-
 typedef struct line_list_s
 {
 	char *line;
