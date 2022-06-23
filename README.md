@@ -4,4 +4,4 @@ A simple shell
 `-Ubuntu 18.04 LTS or later`
 ## Download and Installing
 Clone the repository:
-`git clone `
+`git clone https://github.com/KakaInnocent/simple_shell.git`
