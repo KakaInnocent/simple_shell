@@ -7,3 +7,4 @@ A simple shell
 Clone the repository: </br>
 `git clone https://github.com/KakaInnocent/simple_shell.git`
 ## Next Step
+Compile the code in readiness to testing it
